@@ -1,5 +1,3 @@
-import { Coordinate } from "./coordinate.interface";
-
 export interface Person {
     uuid: string;
     first: string;

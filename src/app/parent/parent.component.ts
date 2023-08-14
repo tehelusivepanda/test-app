@@ -1,13 +1,15 @@
+// Disregarding the app component as the two custom components, this is the component responsible for API firing
+
 import { Component, OnInit } from '@angular/core';
 import { RandomPersonService } from '../random-person.service';
 import { Response } from '../interfaces/response.interface';
 
 @Component({
-  selector: 'app-child',
-  templateUrl: './child.component.html',
-  styleUrls: ['./child.component.css']
+  selector: 'app-parent',
+  templateUrl: './parent.component.html',
+  styleUrls: ['./parent.component.css']
 })
-export class ChildComponent implements OnInit {
+export class ParentComponent implements OnInit {
   response: Response;
   constructor(private personService: RandomPersonService) {}
 

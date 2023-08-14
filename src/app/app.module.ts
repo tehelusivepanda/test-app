@@ -4,13 +4,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ChildComponent } from './child/child.component';
+import { ParentComponent } from './parent/parent.component';
 import { ChildDetailsComponent } from './child-details/child-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChildComponent,
+    ParentComponent,
     ChildDetailsComponent
   ],
   imports: [

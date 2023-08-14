@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ChildComponent } from './child/child.component';
+import { ParentComponent } from './parent/parent.component';
 import { ChildDetailsComponent } from './child-details/child-details.component';
 
 const routes: Routes = [
-  {path: 'child', component: ChildComponent},
+  {path: 'parent', component: ParentComponent},
   {path: 'data/:uuid', component: ChildDetailsComponent},
-  {path: '**', redirectTo: 'child'},
+  {path: '**', redirectTo: 'parent'},
 ];
 
 @NgModule({

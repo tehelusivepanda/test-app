@@ -8,7 +8,7 @@ import { Response } from '../interfaces/response.interface';
   styleUrls: ['./child.component.css']
 })
 export class ChildComponent implements OnInit {
-  response!: Response;
+  response: Response;
   constructor(private personService: RandomPersonService) {}
 
   ngOnInit(): void {

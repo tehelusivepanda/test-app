@@ -3,6 +3,7 @@
         <h3>{{ person.first }} {{ person.last }}</h3>
         <h5><b>Username:</b> {{ person.username }}</h5>
         <h5><b>Email:</b> {{ person.email }}</h5>
-        <h5><b>Birthday:</b> {{ person.birthday }} <b>Age: </b>{{ person.age }}</h5>
+        <h5><b>Birthday:</b> {{ person.birthday.substr(0,10) }} <b>Age: </b>{{ person.age }}</h5>
+        <h5><b>Address: </b>{{ person.address }}</h5>
     </div>
 </div>

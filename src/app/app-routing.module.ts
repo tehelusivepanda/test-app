@@ -4,6 +4,7 @@ import { ParentComponent } from './parent/parent.component';
 import { ChildDetailsComponent } from './child-details/child-details.component';
 import { personResolver } from './random-person.resolver';
 
+// path: '**' is the default path AKA home directory
 const routes: Routes = [
   {path: 'parent', component: ParentComponent},
   {path: 'data/:seed', component: ChildDetailsComponent, resolve: { resolvedResponse: personResolver }},

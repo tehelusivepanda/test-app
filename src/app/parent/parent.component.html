@@ -1,10 +1,8 @@
-<p>new parent works!</p>
 <div *ngIf="response" class="card">
     <div class="card-body">
         <h5>Random User API</h5>
         <p class="card-text">Seed: {{ response.info.seed }}</p>
         <p class="card-text">Results: {{ response.info.results }}</p>
-        <p class="card-text">Version: {{ response.info.version }}</p>
     </div>
 </div>
 <br>
@@ -22,7 +20,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let person of response?.results; let i = index">
-            <td>{{ i + 1 }}</td>
+            <td>{{ i+1 }}</td>
             <td>{{ person.first }} {{ person.last }}</td>
             <td>{{ person.email }}</td>
             <td>{{ person.username }}</td>

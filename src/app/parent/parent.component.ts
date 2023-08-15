@@ -14,6 +14,7 @@ export class ParentComponent implements OnInit {
   constructor(private personService: RandomPersonService) {}
 
   ngOnInit(): void {
+    console.log("ngOnInit of parent.component")
     this.personService.getPeople(10).subscribe(
       (results: Response) => {
         console.log(results);

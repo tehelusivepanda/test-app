@@ -30,6 +30,9 @@ export class RandomPersonService {
       map(this.processResponse));
   }
 
+  // Middle-end hook, copies entire API response which allows us to
+  //  map only the parts we need, info is the meta data just to
+  //  show the seed information
   private processResponse(response: Response): Response {
     console.log("executing processResponse in random-person.service");
     console.log(response.results[0]['login']['uuid']);
@@ -43,6 +46,7 @@ export class RandomPersonService {
           email: person.email,
           username: person.login.username,
           address: `${person.location.street.number} ${person.location.street.name}`,
+          address2: `${person.location.city}, ${person.location.state}, ${person.location.country}`,
           birthday: person.dob.date,
           age: person.dob.age,
         }

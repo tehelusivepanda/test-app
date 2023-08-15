@@ -16,7 +16,6 @@ export class ChildDetailsComponent implements OnInit {
 
   // this.person set to a <Person> object of the snapshot of the resolvedResponse
   //  snapshot is set in random-person.resolver.ts
-  //
   ngOnInit(): void {
     console.log("ngOnInit of child-details.components")
     this.person = (<Person>(this.activatedRoute.snapshot.data['resolvedResponse'].results[0]));

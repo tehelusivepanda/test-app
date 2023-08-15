@@ -16,7 +16,8 @@ export class ParentComponent implements OnInit {
 
   constructor(private personService: RandomPersonService) {}
 
-  assignName (numPeople: string) {
+  // Take user input to generate number of results
+  getNum (numPeople: string) {
     console.log("value received: " + numPeople);
     this.personService.getPeople(+numPeople).subscribe(
       (results: Response) => {
@@ -26,9 +27,10 @@ export class ParentComponent implements OnInit {
     );
   }
 
+  // Execute default value on load (1)
   ngOnInit(): void {
     console.log("ngOnInit of parent.component")
-    this.personService.getPeople(0).subscribe(
+    this.personService.getPeople(1).subscribe(
       (results: Response) => {
         console.log(results);
         this.response = results;

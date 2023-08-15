@@ -1,42 +1,47 @@
-<div *ngIf="response" class="card">
-    <div class="card-body">
-        <h5>Random User API</h5>
-        <p class="card-text">Seed: {{ response.info.seed }}</p>
-        <p class="card-text">Results: {{ response.info.results }}</p>
+<!DOCTYPE html>
+<html>
+    <div *ngIf="response" class="card">
+        <div class="card-body">
+            <h5>Random User API</h5>
+            <p class="card-text">Seed: {{ response.info.seed }}</p>
+            <p class="card-text">Results: {{ response.info.results }}</p>
+        </div>
     </div>
-</div>
-<br>
-<br>
-<div class="card">
-    <div class="card-body">
-        <h5>Random User Results</h5>
-        <div>
-            Number of Results: <input #numPeople name="numPeople" value=""><button (click)="assignName(numPeople.value)">Submit</button>
-          </div>
+    <br>
+    <br>
+    <div class="card">
+        <div class="card-body">
+            <h5>Random User Results</h5>
+            <div>
+                Number of Results: <input #numPeople name="numPeople" value="1"><button (click)="getNum(numPeople.value)">Submit</button>
+            </div>
+            <!-- If API is down, table will not render -->
+            <table *ngIf="response" class="table table-striped">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Address</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <!-- Flex table, expands as needed to fit more entries -->
+                <tbody>
+                    <tr *ngFor="let person of response?.results; let i = index">
+                        <td>{{ i+1 }}</td>
+                        <td>{{ person.first }} {{ person.last }}</td>
+                        <td>{{ person.email }}</td>
+                        <td>{{ person.username }}</td>
+                        <td>{{ person.address }}</td>
+                        <td>
+                            <button [routerLink]="['/data', person.uuid]" type="button" class="button btn btn-primary">View</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</html>
 
-        <table *ngIf="response" class="table table-striped">
-            <thead class="table-light">
-                <tr>
-                    <th scope="col">No.</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Username</th>
-                    <th scope="col">Address</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let person of response?.results; let i = index">
-                    <td>{{ i+1 }}</td>
-                    <td>{{ person.first }} {{ person.last }}</td>
-                    <td>{{ person.email }}</td>
-                    <td>{{ person.username }}</td>
-                    <td>{{ person.address }}</td>
-                    <td>
-                        <button [routerLink]="['/data', person.uuid]" type="button" class="button btn btn-primary">View</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
